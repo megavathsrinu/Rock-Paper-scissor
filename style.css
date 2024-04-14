@@ -1,0 +1,399 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+:root {
+  --dark-green: #004429;
+  --gray: #656565;
+  --yellow: #ffd600;
+  --black: #252525;
+  --green: #8cc461;
+  --white: #fff;
+  --inner-grren: #1da82b;
+  --mid-green: #1da82b90;
+  --outer-green: #2e9a2563;
+}
+
+.main-screen {
+  width: 100vw;
+  height: 100vh;
+  background: var(--green);
+  color: var(--white);
+  position: relative;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  width: full;
+  margin-top: 4%;
+}
+
+.scoreBoard {
+  width: 55%;
+  border: 2px solid var(--white);
+  border-radius: 1rem;
+  display: flex;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+h1 {
+  letter-spacing: 4px;
+}
+
+.display-score {
+  display: flex;
+  gap: 25px;
+  width: 35%;
+}
+
+.scoreCount {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 50%;
+  background-color: var(--white);
+  border-radius: 0.5rem;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 1.7px;
+  padding: 5px;
+}
+
+.scoreComp,
+.scorePlayer {
+  justify-self: flex-end;
+  font-size: 55px;
+  font-weight: 600;
+  color: var(--black);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  width: full;
+  height: 60%;
+  margin-top: 5%;
+}
+
+.playing-zone {
+  height: full;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+}
+
+.playing-zone__top {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  height: 40%;
+  z-index: 2;
+}
+
+#line1,
+#line2,
+#line3 {
+  position: absolute;
+  z-index: -1;
+}
+
+#line1 {
+  left: 35%;
+  top: 25%;
+  width: 30%;
+  height: 5%;
+}
+
+#line3 {
+  left: 34%;
+  top: 35%;
+  width: 13%;
+}
+
+#line2 {
+  left: 53%;
+  top: 35%;
+  width: 13%;
+}
+
+.playing-zone__bottom {
+  position: relative;
+}
+
+.item,
+.side-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 150px;
+  height: 150px;
+  border: none;
+}
+
+.item {
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+#rock {
+  background-image: url("./assets/Group\ 2.png");
+}
+
+#scissor {
+  background-image: url("./assets/Group\ 3.png");
+}
+
+#paper {
+  background-image: url("./assets/Group\ 1.png");
+}
+
+.result-zone {
+  height: 90%;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 0 5px;
+  display: none;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+  width: 30%;
+}
+
+.result-text {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+}
+
+.sub-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+#lost-text,
+#tie-text,
+.replayBtn {
+  display: none;
+}
+
+.result > button {
+  border: 2px solid var(--white);
+  background-color: var(--white);
+  border-radius: 5px;
+  height: 2rem;
+  color: var(--gray);
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  width: 70%;
+  cursor: pointer;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  align-content: space-between;
+  justify-content: center;
+  align-items: center;
+  width: 32%;
+}
+
+.side-text {
+  letter-spacing: 1.5px;
+  font-size: 1rem;
+  font-weight: 600;
+  z-index: 1;
+  margin-bottom: 2%;
+}
+
+#user-rock,
+#pc-rock {
+  background-image: url("./assets/Group\ 2.png");
+}
+
+#user-scissor,
+#pc-scissor {
+  background-image: url("./assets/Group\ 3.png");
+  display: none;
+}
+
+#user-paper,
+#pc-paper {
+  background-image: url("./assets/Group\ 1.png");
+  display: none;
+}
+
+.green-background {
+  border: none;
+  box-shadow: 0 0 0 10px var(--inner-grren) inset, 0 0 0 10px var(--inner-grren),
+    0 0 0 25px var(--mid-green), 0 0 0 40px var(--outer-green);
+  border-radius: 50%;
+}
+
+.cross {
+  background-image: url("./assets/redbg.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 50%;
+  right: 2%;
+  z-index: 1;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+}
+
+.rules {
+  background-color: var(--dark-green);
+  color: var(--white);
+  height: 44%;
+  width: 21%;
+  border: 7px solid var(--white);
+  border-radius: 2rem;
+  padding: 15px 10px;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 10%;
+  right: 3%;
+  display: none;
+}
+
+.rules > h4 {
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+  height: 15%;
+}
+
+.rules-list {
+  font-size: 0.85rem;
+  list-style-type: none;
+  font-weight: 400;
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.rules-list > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: full;
+  gap: 1rem;
+}
+
+.yellow-pointer {
+  width: 10%;
+}
+
+.winner-screen {
+  width: 100vw;
+  height: 100vh;
+  background: var(--green);
+  color: var(--white);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.trophy {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  padding-bottom: 2rem;
+  height: 55%;
+  position: relative;
+  width: 100%;
+}
+
+.stars {
+  position: absolute;
+}
+
+.hurrayMsg {
+  font-size: 5rem;
+  letter-spacing: 9px;
+  height: 15%;
+}
+
+.winMsg {
+  font-size: 2.5rem;
+  letter-spacing: 4px;
+  height: 10%;
+}
+
+.winnerPlayBtn {
+  border: 2px solid var(--white);
+  background-color: var(--white);
+  border-radius: 5px;
+  height: 2.5rem;
+  color: var(--gray);
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  width: 12rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+footer {
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+}
+
+footer > button {
+  border: 2px solid var(--white);
+  background: transparent;
+  width: 7rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  color: var(--white);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.nextBtn {
+  display: none;
+}
